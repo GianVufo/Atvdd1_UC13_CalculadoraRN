@@ -24,7 +24,7 @@ export default function App() {
       case '-':
         setCurrentNumber((fistNumber - lastNumber).toString())
         return
-      case '*':
+      case 'x':
         setCurrentNumber((fistNumber * lastNumber).toString())
         return
       case '/':
