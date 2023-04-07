@@ -40,23 +40,23 @@ export default function App() {
     const fistNumber = parseFloat(splitNumbers[0])
     const operator = splitNumbers[1]
     const lastNumber = parseFloat(splitNumbers[2])
-    const porcentagemMaisMenos = (fistNumber * lastNumber)/100
+    const porcentagemMaisMenos = (fistNumber * lastNumber) / 100
     const porcentagemMultDiv = lastNumber / 100
 
     // Faz ação referente tecla pressionada
 
     switch (operator) {
       case '+':
-        setCurrentNumber( ( (fistNumber + porcentagemMaisMenos ) ).toString())
+        setCurrentNumber(((fistNumber + porcentagemMaisMenos)).toString())
         return
       case '-':
-        setCurrentNumber( ( (fistNumber + porcentagemMaisMenos ) ).toString())
+        setCurrentNumber(((fistNumber - porcentagemMaisMenos)).toString())
         return
       case 'x':
-        setCurrentNumber(( porcentagemMultDiv * fistNumber ).toString())
+        setCurrentNumber((porcentagemMultDiv * fistNumber).toString())
         return
       case '/':
-        setCurrentNumber(( porcentagemMultDiv / fistNumber ).toString())
+        setCurrentNumber((fistNumber / porcentagemMultDiv).toString())
         return
     }
   }
