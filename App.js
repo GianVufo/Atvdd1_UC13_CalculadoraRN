@@ -15,7 +15,7 @@ export default function App() {
     const fistNumber = parseFloat(splitNumbers[0])
     const lastNumber = parseFloat(splitNumbers[2])
     const operator = splitNumbers[1]
-    const porcentagem = (fistNumber * lastNumber)/100
+    const porcentagem = (fistNumber * lastNumber) / 100
 
     // Faz ação referente tecla pressionada
     switch (operator) {
@@ -31,16 +31,39 @@ export default function App() {
       case '/':
         setCurrentNumber((fistNumber / lastNumber).toString())
         return
-        
-      case '%':
-        setCurrentNumber(((fistNumber * lastNumber)/100).toString())
+    }
+  }
+
+  function CalcularPorcentagem() {
+
+    const splitNumbers = currentNumber.split(' ')
+    const fistNumber = parseFloat(splitNumbers[0])
+    const operator = splitNumbers[1]
+    const lastNumber = parseFloat(splitNumbers[2])
+    const porcentagemMaisMenos = (fistNumber * lastNumber)/100
+    const porcentagemMultDiv = lastNumber / 100
+
+    // Faz ação referente tecla pressionada
+
+    switch (operator) {
+      case '+':
+        setCurrentNumber( ( (fistNumber + porcentagemMaisMenos ) ).toString())
+        return
+      case '-':
+        setCurrentNumber( ( (fistNumber + porcentagemMaisMenos ) ).toString())
+        return
+      case 'x':
+        setCurrentNumber(( porcentagemMultDiv * fistNumber ).toString())
+        return
+      case '/':
+        setCurrentNumber(( porcentagemMultDiv / fistNumber ).toString())
         return
     }
   }
 
   function handleInput(buttonPressed) {
     console.log(buttonPressed) // Mostra no Console a tecla pressionada
-    if (buttonPressed === '+' || buttonPressed === "-" || buttonPressed === "x" || buttonPressed === "/" || buttonPressed === "%") {
+    if (buttonPressed === '+' || buttonPressed === "-" || buttonPressed === "x" || buttonPressed === "/") {
       setCurrentNumber(currentNumber + " " + buttonPressed + " ")
       return
     }
@@ -62,6 +85,12 @@ export default function App() {
         } else {
           setCurrentNumber(Math.abs(currentNumber)) // converte de negativo para positivo
         }
+        return
+      case '%':
+
+        setLastNumber(currentNumber + " % ")
+        CalcularPorcentagem()
+
         return
     }
 
